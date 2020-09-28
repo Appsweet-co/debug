@@ -1,0 +1,35 @@
+{
+  "name": "@appsweet-co/debug",
+  "version": "0.1.0",
+  "description": "Makes your console logs much better.",
+  "main": "index.js",
+  "dependencies": {
+    "@appsweet-co/utils": "0.2.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.1.1",
+    "@typescript-eslint/parser": "4.1.1",
+    "eslint": "7.9.0",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.22.0",
+    "typedoc": "0.19.1",
+    "typescript": "4.0.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:docs": "typedoc",
+    "clean": "rm -rf *.js *.js.map **/*.js **/*.js.map ./docs",
+    "docs": "open ./docs/index.html",
+    "prebuild": "eslint **/*.ts && npm run build:docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Appsweet-co/debug.git"
+  },
+  "author": "Appsweet.co (http://a6t.co)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Appsweet-co/debug/issues"
+  },
+  "homepage": "https://github.com/Appsweet-co/debug#readme"
+}

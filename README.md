@@ -27,8 +27,15 @@ const config = {
 
 const debug = Debug(config);
 
-debug.log('Hello World');
+debug.log('Hello World')
 ```
+
+The code above makes the following console output:
+
+```
+==> [LOG] [Foo] Hello World
+```
+
 
 ## Documentation
 

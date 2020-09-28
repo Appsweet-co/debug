@@ -17,11 +17,12 @@
 
   "typedocOptions": {
     "entryPint": "index",
+    "excludeExternals": true,
     "excludeNotExported": true,
     "excludePrivate": true,
     "gitRemote": "https://github.com/Appsweet-co/debug.git",
     "mode": "file",
     "out": "docs",
-    "stripInternal": true
+    "stripInternal": true,
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@appsweet-co/debug",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Makes your console logs much better.",
   "main": "index.js",
   "dependencies": {

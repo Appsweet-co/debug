@@ -41,5 +41,6 @@ module.exports = {
     '@typescript-eslint/semi': ['error'],
     'fp/no-nil': 'off',
     'fp/no-rest-parameters': 'off',
+    'fp/no-unused-expression': 'off',
   },
 };

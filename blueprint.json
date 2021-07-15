@@ -1,0 +1,21 @@
+{
+  "checkLinks": true,
+  "line": "aqua",
+  "badges": [
+    {
+      "alt": "Version",
+      "url": "https://www.npmjs.com/package/@appsweet-co/debug",
+      "img": "https://img.shields.io/npm/v/@appsweet-co/debug.svg?style=for-the-badge"
+    },
+    {
+      "alt": "Documentation",
+      "url": "https://github.com/appsweet-co/debug/blob/main/README.md",
+      "img": "https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge"
+    },
+    {
+      "alt": "License",
+      "url": "https://github.com/appsweet-co/debug/blob/main/LICENSE",
+      "img": "https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge"
+    }
+  ]
+}

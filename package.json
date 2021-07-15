@@ -20,7 +20,8 @@
     "build:docs": "typedoc",
     "clean": "rm -rf *.js *.js.map **/*.js **/*.js.map *.d.ts **/*.d.ts ./docs",
     "docs": "open ./docs/index.html",
-    "prebuild": "eslint **/*.ts && npm run build:docs"
+    "prebuild": "eslint **/*.ts && npm run build:docs",
+    "readme": "npx @appnest/readme generate"
   },
   "repository": {
     "type": "git",

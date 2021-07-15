@@ -1,25 +1,29 @@
-import { DebugConfig } from './const';
-import { deactivate, formatMsg, getDisabled, getMeta, getPrefix, showMeta } from './service';
+import { defaults, Opts } from './const';
+import { deactivate, format } from './service';
 
-export const Debug = (config: DebugConfig) => {
-  const disabled = deactivate(getDisabled(config.disabled));
-  const meta = showMeta(getMeta(config.meta));
-  const msg = formatMsg(getPrefix(config.prefix));
+export const Debug = (opts: Opts) => {
+  const config = { ...defaults, ...opts };
+
+  const disabled = deactivate(config.disabled);
+  const prefixed = format(config.prefix);
 
   return {
     log: <T extends string>(...context: T[]) => {
       if (disabled('log')) return;
-      console.log(...meta('log'), ...msg(...context));
+      const msgs = prefixed(config.showMeta ? 'log' : '');
+      console.log(...msgs(context));
     },
 
     warn: <T extends string>(...context: T[]) => {
       if (disabled('warn')) return;
-      console.warn(...meta('warn'), ...msg(...context));
+      const msgs = prefixed(config.showMeta ? 'warn' : '');
+      console.warn(...msgs(context));
     },
 
     error: <T extends string>(...context: T[]) => {
       if (disabled('error')) return;
-      console.error(...meta('error'), ...msg(...context));
+      const msgs = prefixed(config.showMeta ? 'error' : '');
+      console.error(...msgs(context));
     }
   };
 };

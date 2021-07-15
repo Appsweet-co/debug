@@ -1,14 +1,13 @@
 export type DebugType = 'all' | 'log' | 'warn' | 'error';
 
-export interface DebugConfig {
-  prefix?: string | null;
+export interface Opts {
   disabled?: DebugType[];
-  meta?: boolean;
+  prefix?: string | null;
+  showMeta?: boolean;
 }
 
-/** @internal */
-export const defaults: DebugConfig = {
+export const defaults: Opts = {
   disabled: [],
-  meta: false,
   prefix: null,
+  showMeta: false,
 };

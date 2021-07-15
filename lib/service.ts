@@ -1,26 +1,17 @@
-import { Maybe } from 'true-myth/maybe';
-import { DebugType, defaults } from './const';
+import { DebugType } from './const';
 
-/** @internal */
-export const getDisabled = (val: DebugType[]) => Maybe.of(val).unwrapOr(defaults.disabled);
+const style = (config: { uppercase: boolean; }) => (val: string) => {
+  const { uppercase } = config;
+  return (val.length === 0) ? '' : `[${uppercase ? val.toUpperCase() : val}]`;
+};
 
-/** @internal */
-export const getMeta = (active: boolean) => Maybe.of(active).unwrapOr(defaults.meta);
+const none = style({ uppercase: false });
+const upper = style({ uppercase: true });
 
-/** @internal */
-export const getPrefix = (prefix: string) => Maybe.of(prefix).unwrapOr(defaults.prefix);
+export const format = (prefix: string) => (meta: string) => <T extends string>(msgs: T[]) => {
+  return [upper(meta), none(prefix), ...msgs].filter(x => x.length);
+};
 
-/** @internal */
 export const deactivate = (list: DebugType[]) => {
   return (kind: DebugType) => list.includes('all') || list.includes(kind);
-};
-
-/** @internal */
-export const formatMsg = (prefix: string) => {
-  return <T extends string>(...context: T[]) => (prefix) ? [`[${prefix}]`, ...context] : [...context];
-};
-
-/** @internal */
-export const showMeta = (active: boolean) => {
-  return (kind: DebugType) => (active) ? [`==> [${kind.toUpperCase()}]`] : [];
 };

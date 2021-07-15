@@ -8,7 +8,7 @@
 
 <p align="center">
 		<a href="https://www.npmjs.com/package/@appsweet-co/debug"><img alt="Version" src="https://img.shields.io/npm/v/@appsweet-co/debug.svg?style=for-the-badge" height="20"/></a>
-<a href="https://github.com/appsweet-co/debug/blob/main/README.md"><img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge" height="20"/></a>
+<a href="https://appsweet-co.github.io/debug"><img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge" height="20"/></a>
 <a href="https://github.com/appsweet-co/debug/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" height="20"/></a>
 	</p>
 
@@ -29,24 +29,22 @@ npm install @appsweet-co/debug
 
 Import utilities directly into your files:
 
-```javascript
-import { Debug } from '@appsweet-co/debug';
+```ts
+import { Debug, DebugOpts } from '@appsweet-co/debug';
 
-const config = {
+const config: DebugOpts = {
   disabled: ['warn'],
-  meta: true,
-  prefix: 'Foo',
+  prefix: 'FooBar',
+  showMeta: true
 };
 
 const debug = Debug(config);
 
 debug.log('Hello World')
-```
+// [LOG] [FooBar] Hello World
 
-The code above makes the following console output:
-
-```
-[LOG] [Foo] Hello World
+debug.warn('Goodbye World');
+// <No output>
 ```
 
 
@@ -54,11 +52,7 @@ The code above makes the following console output:
 
 ## ➤ Documentation
 
-We generate function documentation using [TypeDoc](http://typedoc.org/). View documentation locally using this `npm` command:
-
-```sh
-npm run docs
-```
+We generate API documentation using [TypeDoc](http://typedoc.org/). View the docs page [here](https://appsweet-co.github.io/debug).
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)](#updating-this-readme)

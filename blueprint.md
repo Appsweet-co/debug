@@ -12,33 +12,27 @@ npm install @appsweet-co/debug
 
 Import utilities directly into your files:
 
-```javascript
-import { Debug } from '@appsweet-co/debug';
+```ts
+import { Debug, DebugOpts } from '@appsweet-co/debug';
 
-const config = {
+const config: DebugOpts = {
   disabled: ['warn'],
-  meta: true,
-  prefix: 'Foo',
+  prefix: 'FooBar',
+  showMeta: true
 };
 
 const debug = Debug(config);
 
 debug.log('Hello World')
-```
+// [LOG] [FooBar] Hello World
 
-The code above makes the following console output:
-
-```
-[LOG] [Foo] Hello World
+debug.warn('Goodbye World');
+// <No output>
 ```
 
 ## Documentation
 
-We generate function documentation using [TypeDoc](http://typedoc.org/). View documentation locally using this `npm` command:
-
-```sh
-npm run docs
-```
+We generate API documentation using [TypeDoc](http://typedoc.org/). View the docs page [here](https://appsweet-co.github.io/debug).
 
 ## Updating This README
 

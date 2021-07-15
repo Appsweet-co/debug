@@ -4,6 +4,9 @@
 lib/*.d.ts
 lib/*.js
 
+index.d.ts
+index.js
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,typings
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,typings
 

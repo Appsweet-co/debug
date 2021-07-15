@@ -1,25 +1,25 @@
 import { DebugConfig } from './const';
-import { deactivate, format, maybeDisabled, maybeMeta, maybePrefix, meta } from './service';
+import { deactivate, formatMsg, getDisabled, getMeta, getPrefix, showMeta } from './service';
 
 export const Debug = (config: DebugConfig) => {
-  const disabled = deactivate(maybeDisabled(config.disabled));
-  const cat = meta(maybeMeta(config.meta));
-  const msg = format(maybePrefix(config.prefix));
+  const disabled = deactivate(getDisabled(config.disabled));
+  const meta = showMeta(getMeta(config.meta));
+  const msg = formatMsg(getPrefix(config.prefix));
 
-  const log = (...context: any[]) => {
-    if (disabled('log')) return;
-    console.log(...cat('log'), ...msg(...context));
+  return {
+    log: (...context: any[]) => {
+      if (disabled('log')) return;
+      console.log(...meta('log'), ...msg(...context));
+    },
+
+    warn: (...context: any[]) => {
+      if (disabled('warn')) return;
+      console.warn(...meta('warn'), ...msg(...context));
+    },
+
+    error: (...context: any[]) => {
+      if (disabled('error')) return;
+      console.error(...meta('error'), ...msg(...context));
+    }
   };
-
-  const warn = (...context: any[]) => {
-    if (disabled('warn')) return;
-    console.warn(...cat('warn'), ...msg(...context));
-  };
-
-  const error = (...context: any[]) => {
-    if (disabled('error')) return;
-    console.error(...cat('error'), ...msg(...context));
-  };
-
-  return { log, warn, error };
 };

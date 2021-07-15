@@ -10,19 +10,20 @@
     "removeComments": true,
     "sourceMap": false,
     "target": "es2015",
-    "lib": ["DOM", "ES2017"],
+    "lib": [
+      "DOM",
+      "ES2017"
+    ],
   },
-
-  "include": ["**/*.ts"],
-
+  "include": [
+    "**/*.ts"
+  ],
   "typedocOptions": {
-    "entryPint": "index",
+    "entryPoints": "index.ts",
     "excludeExternals": true,
-    "excludeNotExported": true,
+    "excludeInternal": true,
     "excludePrivate": true,
     "gitRemote": "https://github.com/Appsweet-co/debug.git",
-    "mode": "file",
     "out": "docs",
-    "stripInternal": true,
   }
 }

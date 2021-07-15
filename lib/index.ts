@@ -1,7 +1,7 @@
-import { defaults, Opts } from './const';
+import { DebugOpts, defaults } from './const';
 import { deactivate, format } from './service';
 
-export const Debug = (opts: Opts) => {
+export const Debug = (opts: DebugOpts) => {
   const config = { ...defaults, ...opts };
 
   const disabled = deactivate(config.disabled);

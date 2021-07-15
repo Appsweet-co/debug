@@ -7,17 +7,17 @@ export const Debug = (config: DebugConfig) => {
   const msg = formatMsg(getPrefix(config.prefix));
 
   return {
-    log: (...context: any[]) => {
+    log: <T extends string>(...context: T[]) => {
       if (disabled('log')) return;
       console.log(...meta('log'), ...msg(...context));
     },
 
-    warn: (...context: any[]) => {
+    warn: <T extends string>(...context: T[]) => {
       if (disabled('warn')) return;
       console.warn(...meta('warn'), ...msg(...context));
     },
 
-    error: (...context: any[]) => {
+    error: <T extends string>(...context: T[]) => {
       if (disabled('error')) return;
       console.error(...meta('error'), ...msg(...context));
     }

@@ -16,11 +16,11 @@ export const deactivate = (list: DebugType[]) => {
 };
 
 /** @internal */
-export const formatMsg = (prefix: string | null | undefined) => {
-  return (...context: any) => (prefix) ? [`[${prefix}]`, ...context] : [...context];
+export const formatMsg = (prefix: string) => {
+  return <T extends string>(...context: T[]) => (prefix) ? [`[${prefix}]`, ...context] : [...context];
 };
 
 /** @internal */
-export const showMeta = (active: boolean | undefined) => {
+export const showMeta = (active: boolean) => {
   return (kind: DebugType) => (active) ? [`==> [${kind.toUpperCase()}]`] : [];
 };

@@ -20,9 +20,9 @@
   ],
   "typedocOptions": {
     "entryPoints": "index.ts",
-    "excludeExternals": true,
-    "excludeInternal": true,
-    "excludePrivate": true,
+    "excludeExternals": false,
+    "excludeInternal": false,
+    "excludePrivate": false,
     "gitRemote": "https://github.com/Appsweet-co/debug.git",
     "out": "docs",
   }

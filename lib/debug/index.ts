@@ -1,4 +1,5 @@
-import { deactivate, DebugConfig, format, maybeDisabled, maybeMeta, maybePrefix, meta } from './service';
+import { DebugConfig } from './const';
+import { deactivate, format, maybeDisabled, maybeMeta, maybePrefix, meta } from './service';
 
 export const Debug = (config: DebugConfig) => {
   const disabled = deactivate(maybeDisabled(config.disabled));
